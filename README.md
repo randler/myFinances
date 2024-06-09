@@ -2,7 +2,7 @@
 
 ![Logo](https://github.com/randler/myFinances/blob/master/finance-logo-6277C6570C-seeklogo.com.png?raw=true)
 
-# My Finanace
+# My Finance
 
 Projeto criado com a finalidade de ajudar no seu orçamento mensal e ajudar a economizar dinheiro.
 
@@ -19,7 +19,7 @@ Projeto criado com a finalidade de ajudar no seu orçamento mensal e ajudar a ec
 Os pre-requisitos para que o projeto funcione são os seguintes
 
  - [Docker](https://docs.docker.com/engine/install/)
- - [Compoer](https://getcomposer.org/download/)
+ - [Composer](https://getcomposer.org/download/)
 
 ## Instalação
 
