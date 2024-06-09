@@ -26,6 +26,7 @@ Os pre-requisitos para que o projeto funcione são os seguintes
 Para instalar o projeto você precisa rodar os seguintes comandos.
 
 ```bash
+  $ git clone https://github.com/randler/myFinances.git
   $ cd myFinance
   $ composer install
   $ ./vendor/bin/sail up -d
