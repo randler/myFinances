@@ -1,6 +1,6 @@
 
 
-![Logo](https://github.com/randler/myFinances/blob/master/finance-logo-6277C6570C-seeklogo.com.png?raw=true)
+![Logo](https://github.com/randler/myFinances/blob/master/logo.png?raw=true)
 
 # My Finance
 
