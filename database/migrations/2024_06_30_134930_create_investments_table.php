@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('expenses', function (Blueprint $table) {
+        Schema::create('investments', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->string('description', 255)->nullable();
-            $table->decimal('amount', 15, 2)->nullable();
-            $table->decimal('amount_paid', 15, 2)->nullable();
-            $table->date('expiration_date')->nullable();
-            $table->date('paid_date')->nullable();
-            // recurrence
+            $table->text('description')->nullable();
+            $table->decimal('amount');
+             // recurrence
             $table->enum('recurrence', ['daily', 'weekly', 'monthly', 'yearly'])->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('expenses');
+        Schema::dropIfExists('investments');
     }
 };
