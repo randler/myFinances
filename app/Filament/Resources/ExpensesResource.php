@@ -6,9 +6,12 @@ use App\Filament\Resources\ExpensesResource\Pages;
 use App\Filament\Resources\ExpensesResource\RelationManagers;
 use App\Models\Expenses;
 use Filament\Forms;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -23,7 +26,17 @@ class ExpensesResource extends Resource
     {
         return $form
             ->schema([
-                //
+                TextInput::make('title'),
+                Textarea::make('description')
+                    ->maxLength(255)
+                    ->rows(5),
+                TextInput::make('amount')
+                    ->numeric()
+                    ->inputMode('decimal'),
+                    TextInput::make('amount_paid')
+                    ->numeric()
+                    ->inputMode('decimal'),
+                
             ]);
     }
 
@@ -31,7 +44,9 @@ class ExpensesResource extends Resource
     {
         return $table
             ->columns([
-                //
+                TextColumn::make('title')
+                ->searchable()
+                ->sortable(),
             ])
             ->filters([
                 //
