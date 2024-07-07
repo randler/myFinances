@@ -3,10 +3,12 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\ExpensesResource\Widgets\ExpensesOverview;
 use App\Filament\Resources\FinanceAssetsResource\Widgets\AVGFinanceAssets;
 use App\Filament\Resources\FinanceAssetsResource\Widgets\FinanceAssetsOverview;
 use App\Filament\Resources\FinanceAssetsResource\Widgets\StatsAssets;
 use App\Filament\Resources\FinanceAssetsResource\Widgets\StatsFinanceAssets;
+use App\Filament\Widgets\FinancialChartOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -44,6 +46,8 @@ class AdminPanelProvider extends PanelProvider
             ->widgets([
                 StatsAssets::class,
                 //FinanceAssetsOverview::class,
+                ExpensesOverview::class,
+                FinancialChartOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
