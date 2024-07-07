@@ -2,6 +2,13 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Pages\Dashboard;
+use App\Filament\Resources\ExpensesResource\Widgets\ExpensesOverview;
+use App\Filament\Resources\FinanceAssetsResource\Widgets\AVGFinanceAssets;
+use App\Filament\Resources\FinanceAssetsResource\Widgets\FinanceAssetsOverview;
+use App\Filament\Resources\FinanceAssetsResource\Widgets\StatsAssets;
+use App\Filament\Resources\FinanceAssetsResource\Widgets\StatsFinanceAssets;
+use App\Filament\Widgets\FinancialChartOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -28,17 +35,19 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->login()
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Emerald,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
-                Pages\Dashboard::class,
+                Dashboard::class
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+                StatsAssets::class,
+                //FinanceAssetsOverview::class,
+                ExpensesOverview::class,
+                FinancialChartOverview::class,
             ])
             ->middleware([
                 EncryptCookies::class,
