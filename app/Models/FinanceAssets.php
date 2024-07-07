@@ -17,4 +17,19 @@ class FinanceAssets extends Model
         'end_date' => 'datetime',
     ];
 
+    protected $fillable = [
+        'title',
+        'description',
+        'amount',
+        'recurrence',
+        'start_date',
+        'end_date',
+        'user_id',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

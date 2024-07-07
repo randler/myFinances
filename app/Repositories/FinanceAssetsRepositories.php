@@ -11,7 +11,8 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
 {
     public function getMonthBalance(): float
     {
-        $total = FinanceAssets::whereBetween(
+        $total = FinanceAssets::where('user_id', auth()->id())
+            ->whereBetween(
                 'created_at', 
                 [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()]
             )->get()
@@ -20,7 +21,8 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
     }
     public function getMonthEconomy(): float
     {
-        $assets = FinanceAssets::whereBetween(
+        $assets = FinanceAssets::where('user_id', auth()->id())
+            ->whereBetween(
             'created_at',
             [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()]
             )->get()
