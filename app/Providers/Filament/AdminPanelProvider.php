@@ -4,7 +4,10 @@ namespace App\Providers\Filament;
 
 use App\Filament\Pages\Dashboard;
 use App\Filament\Resources\ExpensesResource\Widgets\ExpensesOverview;
+use App\Filament\Resources\ExpensesResource\Widgets\ExpensesWidget;
+use App\Filament\Resources\FinanceAssetsResource\Widgets\FinanceAssetsWidgets;
 use App\Filament\Resources\FinanceAssetsResource\Widgets\StatsAssets;
+use App\Filament\Resources\InvestmentsResource\Widgets\InvestmentsWidget;
 use App\Filament\Widgets\FinancialChartOverview;
 use App\Plugin\AccessControlPlugin;
 use Filament\Http\Middleware\Authenticate;
@@ -44,6 +47,9 @@ class AdminPanelProvider extends PanelProvider
                 //FinanceAssetsOverview::class,
                 ExpensesOverview::class,
                 FinancialChartOverview::class,
+                ExpensesWidget::class,
+                InvestmentsWidget::class,
+                FinanceAssetsWidgets::class,
             ])
             ->middleware([
                 EncryptCookies::class,
