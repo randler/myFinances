@@ -4,19 +4,16 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\FinanceAssetsResource\Pages;
 use App\Models\FinanceAssets;
-use Carbon\Carbon;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Support\Facades\Date;
+use Illuminate\Database\Eloquent\Builder;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class FinanceAssetsResource extends Resource
@@ -32,11 +29,15 @@ class FinanceAssetsResource extends Resource
                 TextInput::make('title'),
                 TextInput::make('description'),
                 TextInput::make('amount')
-                    ->prefix('R$')
-                    ->step('0.01')
-
-                    ->mask(RawJs::make('$money($input)')),
+                    ->currencyMask(thousandSeparator: ',', decimalSeparator: '.', precision: 2)
+                    ->prefix('R$'),
                 ToggleButtons::make('recurrence')
+                    ->colors([
+                        'daily' => 'info',
+                        'weekly' => 'success',
+                        'monthly' => 'warning',
+                        'yearly' => 'danger',
+                    ])
                     ->options([
                         'daily' => 'Daily',
                         'weekly' => 'Weekly',
@@ -45,13 +46,11 @@ class FinanceAssetsResource extends Resource
                     ]),
                 DatePicker::make('start_date')
                     ->timezone('America/Sao_Paulo')
-                    ->locale('pt-BR')
-                    ->minDate(Date::now()),
+                    ->locale('pt-BR'),
                 DatePicker::make('end_date')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
-                    ->nullable()
-                    ->minDate(Date::now()),
+                    ->nullable(),
 
             ]);
     }
@@ -59,6 +58,10 @@ class FinanceAssetsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $userId = auth()->user()->id;
+                $query->where('user_id', $userId);
+            })
             ->columns([
                 TextColumn::make('title')
                     ->searchable()
@@ -66,11 +69,19 @@ class FinanceAssetsResource extends Resource
                 TextColumn::make('description'),
                 TextColumn::make('amount')
                     ->money('BRL'),
-                TextColumn::make('recurrence'),
+                TextColumn::make('recurrence')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'daily' => 'info',
+                        'weekly' => 'success',
+                        'monthly' => 'warning',
+                        'yearly' => 'danger'
+                    }),
                 TextColumn::make('start_date')
                     ->date('d/m/Y'),
                 TextColumn::make('end_date')
                     ->date('d/m/Y'),
+                TextColumn::make('user.name')
                 
             ])
             ->filters([
