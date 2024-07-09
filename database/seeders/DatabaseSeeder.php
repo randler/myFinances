@@ -12,6 +12,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // run command: artisan filament-access-control:install
+        $this->call(UserAccessControlSeeder::class);
+        $this->call(UsersSeeder::class);
         $this->call(FinanceAssetsSeeder::class);
         $this->call(ExpensesSeeder::class);
         $this->call(InvestmentsSeeder::class);

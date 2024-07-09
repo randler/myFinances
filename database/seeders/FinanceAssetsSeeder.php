@@ -18,7 +18,7 @@ class FinanceAssetsSeeder extends Seeder
          *   $table->string('title')->nullable();
          */
         $faker = \Faker\Factory::create('pt_BR');
-        for($i = 0; $i < 10; $i++) {
+        for($i = 0; $i < 100; $i++) {
             FinanceAssets::create([
                 'title' => $faker->name,
                 'description' => $faker->text,
