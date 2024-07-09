@@ -80,8 +80,7 @@ class FinanceAssetsResource extends Resource
                 TextColumn::make('start_date')
                     ->date('d/m/Y'),
                 TextColumn::make('end_date')
-                    ->date('d/m/Y'),
-                TextColumn::make('user.name')
+                    ->date('d/m/Y')
                 
             ])
             ->filters([
