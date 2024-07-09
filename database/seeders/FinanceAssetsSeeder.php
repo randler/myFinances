@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\FinanceAssets;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,7 +19,9 @@ class FinanceAssetsSeeder extends Seeder
          *   $table->string('title')->nullable();
          */
         $faker = \Faker\Factory::create('pt_BR');
-        for($i = 0; $i < 10; $i++) {
+        // random user 
+        for($i = 0; $i < 100; $i++) {
+            $user = User::all()->random();
             FinanceAssets::create([
                 'title' => $faker->name,
                 'description' => $faker->text,
@@ -26,7 +29,7 @@ class FinanceAssetsSeeder extends Seeder
                 'recurrence' => $faker->randomElement(['daily', 'weekly', 'monthly', 'yearly']),
                 'start_date' => $faker->date(),
                 'end_date' => $faker->date(),
-
+                'user_id' => $user->id
             ]);
         }
     }

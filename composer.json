@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "ariaieboy/filament-currency": "^1.8",
+        "chiiya/filament-access-control": "^2.4",
         "filament/actions": "^3.2",
         "filament/filament": "^3.2",
         "filament/widgets": "^3.2",
