@@ -23,7 +23,8 @@ class InvestmentsWidget extends BaseWidget
             ->columns([
                 TextColumn::make('title'),
                 TextColumn::make('amount')
-                    ->prefix('R$ ')
+                    ->label('Investimentos')
+                    ->money('brl'),
             ]);
     }
 }

@@ -14,7 +14,7 @@ class ExpensesWidget extends BaseWidget
     protected static ?int $sort = 3;
 
     public function table(Table $table): Table
-    {
+    {   
         return $table
         ->paginated([4])
         ->query(
@@ -23,10 +23,13 @@ class ExpensesWidget extends BaseWidget
         ->columns([
             TextColumn::make('title'),
             TextColumn::make('amount')
-                ->prefix('R$ '),
+                ->label('Despesas')
+                ->money('brl'),
             TextColumn::make('amount_paid')
-                ->prefix('R$ '),
+                ->label('Despesas Pagas')
+                ->money('brl'),
             TextColumn::make('expiration_date')
+                ->label('Vencimento')
                 ->date('d/m/Y'),
         ]);
     }

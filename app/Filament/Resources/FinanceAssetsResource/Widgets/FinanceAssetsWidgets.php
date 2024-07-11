@@ -23,7 +23,8 @@ class FinanceAssetsWidgets extends BaseWidget
             ->columns([
                 TextColumn::make('title'),
                 TextColumn::make('amount')
-                    ->prefix('R$ ')
+                    ->label("Saldo")
+                    ->money('brl'),
             ]);
     }
 
