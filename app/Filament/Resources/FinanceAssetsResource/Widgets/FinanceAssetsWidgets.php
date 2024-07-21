@@ -18,7 +18,7 @@ class FinanceAssetsWidgets extends BaseWidget
     {   
         $repository = new FinanceAssetsRepositories();
         return $table
-            ->paginated([4])
+            ->paginated(false)
             ->query(
                 $repository->getCurrentMonthBalance()
             )
