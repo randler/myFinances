@@ -16,9 +16,12 @@ class InvestmentsWidget extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->paginated([4])
+            ->paginated(false)
             ->query(
-                Investments::query()->latest()
+                // pegar os investimentos do mês
+                Investments::query()
+                    ->latest()
+                    ->limit(4)
             )
             ->columns([
                 TextColumn::make('title'),

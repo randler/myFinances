@@ -16,9 +16,12 @@ class FinanceAssetsWidgets extends BaseWidget
     public function table(Table $table): Table
     {
         return $table
-            ->paginated([4])
+            ->paginated(false)
             ->query(
-                FinanceAssets::query()->latest()
+                // pegar as entrada do mês
+                FinanceAssets::query()
+                    ->latest()
+                    ->limit(4)
             )
             ->columns([
                 TextColumn::make('title'),
