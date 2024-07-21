@@ -61,6 +61,10 @@ class InvestmentsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $userId = auth()->user()->id;
+                $query->where('user_id', $userId);
+            })
             ->columns([
                 TextColumn::make('title')
                 ->searchable()

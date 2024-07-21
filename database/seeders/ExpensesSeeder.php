@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Expenses;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -19,6 +20,7 @@ class ExpensesSeeder extends Seeder
          */
         $faker = \Faker\Factory::create('pt_BR');
         for($i = 0; $i < 10; $i++) {
+            $user = User::all()->random();
             Expenses::create([
                 'title' => $faker->name,
                 'description' => $faker->text,
@@ -29,7 +31,7 @@ class ExpensesSeeder extends Seeder
                 'recurrence' => $faker->randomElement(['daily', 'weekly', 'monthly', 'yearly']),
                 'start_date' => $faker->date(),
                 'end_date' => $faker->date(),
-
+                'user_id' => $user->id
             ]);
         }
     }

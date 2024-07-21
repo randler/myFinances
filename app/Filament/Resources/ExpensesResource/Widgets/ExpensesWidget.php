@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\ExpensesResource\Widgets;
 
 use App\Models\Expenses;
+use App\Repositories\ExpensesRepositories;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -13,12 +14,14 @@ class ExpensesWidget extends BaseWidget
     protected static ?string $heading = 'Despesas Planejadas do Mês';
     protected static ?int $sort = 3;
 
+
     public function table(Table $table): Table
     {   
+        $repository = new ExpensesRepositories();
         return $table
         ->paginated([4])
         ->query(
-            Expenses::query()->latest()
+            $repository->getCurrentMonthExpenses()
         )
         ->columns([
             TextColumn::make('title'),
