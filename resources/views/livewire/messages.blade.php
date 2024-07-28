@@ -1,3 +1,4 @@
+<div>
 <x-filament::dropdown>
     <x-slot name="trigger">
         <x-filament::icon
@@ -6,8 +7,16 @@
     </x-slot>
 
     <x-filament::dropdown.list>
-        <x-filament::dropdown.list.item icon="fas-circle-user">
+        <x-filament::dropdown.list.item
+        
+            wire:click="openModal()" 
+            icon="fas-circle-user">
             username
         </x-filament::dropdown.list.item>
     </x-filament::dropdown.list>
 </x-filament::dropdown>
+
+<x-filament::modal id="edit-user">
+    <p>modal</p>
+</x-filament::modal>
+</div>

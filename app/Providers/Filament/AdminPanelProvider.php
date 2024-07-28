@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Emerald,
             ])
-            ->viteTheme('resources/css/filament/admin/theme.css')
+            ->viteTheme(['resources/css/filament/admin/theme.css'])
             ->renderHook(
                 PanelsRenderHook::USER_MENU_BEFORE,
                 fn (): string => Blade::render('@livewire(\'messages\')'),

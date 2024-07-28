@@ -13,9 +13,9 @@ class Messages extends Component
         return view('livewire.messages', ['count' => 5]);
     }
 
-    public function toggleModal()
+    public function openModal()
     {
-        $this->modal = !$this->modal;
+        $this->dispatch('open-modal', id: 'edit-user');
     }
 
 }
