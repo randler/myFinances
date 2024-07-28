@@ -32,15 +32,23 @@ class ExpensesWidget extends BaseWidget
             $repository->getCurrentMonthExpenses()
         )
         ->columns([
-            TextColumn::make('title'),
-            TextColumn::make('amount')
-                ->label('Despesas')
-                ->money('brl'),
+            TextColumn::make('title')
+                ->label('Título'),
             TextColumn::make('amount_paid')
-                ->label('Despesas Pagas')
+                ->label('Total da Despesa Paga')
                 ->money('brl'),
-            TextColumn::make('expiration_date')
-                ->label('Vencimento')
+            TextColumn::make('amount_debit_month')
+                ->label('Despesa Mensal')
+                ->money('brl'),
+            TextColumn::make('recurrence_month_formatted')
+                ->label('Parcela'),
+            TextColumn::make('total_parcel_paid')
+                ->label('Parcelas Pagas'),
+            TextColumn::make('expiration_day')
+                ->label('dia do Vencimento')
+                ->date('d'),
+            TextColumn::make('end_date')
+                ->label('Vencimento Final')
                 ->date('d/m/Y'),
         ])
         ->actions([
@@ -65,9 +73,9 @@ class ExpensesWidget extends BaseWidget
                         $expense->amount_paid = $expense->amount;
                         $expense->paid_date = now();
                     } else {
-                        $expense->amount_paid = $expense->amount_paid + floatval($data['paid']);
+                        $expense->amount_paid = floatval($expense->amount_paid) + floatval($data['paid']);
                         if($expense->amount_paid >= $expense->amount) {
-                            $expense->amount_paid = $expense->amount;
+                            $expense->amount_paid = floatval($expense->amount);
                         }
                         $expense->paid_date = now();
                     }

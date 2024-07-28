@@ -66,7 +66,7 @@
 </style>
 <div>
     <div class="content-title">
-        <h2 class="title">Pagar</h2>
+        <h2 class="title">{{ $expense->title }}</h2>
     </div>
     <div class="content-body">
         <div class="content-desc">

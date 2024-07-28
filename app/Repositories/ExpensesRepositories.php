@@ -28,6 +28,7 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
         // expense -> 01/06/2023 - null
         // 28/07/2024
         return Expenses::where('user_id', auth()->id())
+            ->whereColumn('amount', '>=', 'amount_paid')
             ->where('start_date', '<=', Carbon::now())    
             ->where(function ($query) {
                 $query->where('end_date', '>=', Carbon::now())
