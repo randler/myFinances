@@ -23,12 +23,16 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
 
     public function getCurrentMonthExpenses()
     {
+        // start_date - end_date
+        // expense -> 01/06/2023 - 30/09/2025
+        // expense -> 01/06/2023 - null
+        // 28/07/2024
         return Expenses::where('user_id', auth()->id())
-            ->whereBetween(
-                'expiration_date',
-                [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth(),
-                Carbon::now()->startOfYear(), Carbon::now()->endOfYear()]
-        );  
+            ->where('start_date', '<=', Carbon::now())    
+            ->where(function ($query) {
+                $query->where('end_date', '>=', Carbon::now())
+                        ->orWhereNull('end_date');
+            });
     }
 
     public function getMonthExpensesPaid(): float

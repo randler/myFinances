@@ -3,13 +3,10 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ExpensesResource\Pages;
-use App\Filament\Resources\ExpensesResource\RelationManagers;
 use App\Models\Expenses;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\ToggleButtons;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -17,8 +14,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Date;
+use Leandrocfe\FilamentPtbrFormFields\Money;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
 class ExpensesResource extends Resource
@@ -31,41 +28,48 @@ class ExpensesResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
+                TextInput::make('title')
+                    ->required()
+                    ->label('Título')
+                    ->placeholder('Título'),
                 Textarea::make('description')
+                    ->label('Descrição')
+                    ->placeholder('Descrição')
                     ->maxLength(255)
                     ->rows(5),
-                TextInput::make('amount')
-                    ->numeric()
-                    ->inputMode('decimal')
+                Money::make('amount')
+                    ->label('Valor')
+                    ->placeholder('Valor')
+                    ->required()
                     ->prefix('R$'),
-                TextInput::make('amount_paid')
-                    ->numeric()
-                    ->inputMode('decimal')
+                Money::make('amount_paid')
+                    ->label('Valor Pago')
+                    ->placeholder('Valor Pago')
+                    ->required()
                     ->prefix('R$'),
-                DatePicker::make('expiration_date')
-                    ->timezone('America/Sao_Paulo')
-                    ->locale('pt-BR'),
+                DatePicker::make('expiration_day')
+                    ->native(false)
+                    ->label('Dia do Vencimento')
+                    ->default(Date::now())
+                    ->displayFormat('d')
+                    ->format('d'),
                 DatePicker::make('paid_date')
+                    ->label('Data de Pagamento')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
                     ->nullable(),
-                ToggleButtons::make('recurrence')
-                    ->options([
-                        'daily' => 'Daily',
-                        'weekly' => 'Weekly',
-                        'monthly' => 'Monthly',
-                        'yearly' => 'Yearly',
-                    ]),
+                TextInput::make('recurrence_month')
+                    ->label('Total de Meses')
+                    ->numeric()
+                    ->integer()
+                    ->placeholder('Total de meses')
+                    ->minValue(1)
+                    ->suffix('X Meses'),
                 DatePicker::make('start_date')
+                    ->label('Data de Início')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
-                    ->minDate(Date::now()),
-                DatePicker::make('end_date')
-                    ->timezone('America/Sao_Paulo')
-                    ->locale('pt-BR')
-                    ->nullable()
-                    ->minDate(Date::now()),                
+                    ->default(Date::now())                
             ]);
     }
 
@@ -78,9 +82,11 @@ class ExpensesResource extends Resource
             })
             ->columns([
                 TextColumn::make('title')
+                    ->label('Título')
                     ->searchable()
                     ->sortable(),
                 TextColumn::make('description')
+                    ->label('Descrição')
                     ->color('gray')
                     ->limit(50)
                     ->tooltip(function (TextColumn $column): ?string {
@@ -94,17 +100,24 @@ class ExpensesResource extends Resource
                         return $state;
                     }),
                 TextColumn::make('amount')
+                    ->label('Valor')
                     ->money('BRL'),
                 TextColumn::make('amount_paid')
+                    ->label('Valor Pago')
                     ->money('BRL'),
-                TextColumn::make('expiration_date')
-                    ->date('d/m/Y'),
+                TextColumn::make('expiration_day')
+                    ->label('Dia do Vencimento')
+                    ->dateTime('d'),
                 TextColumn::make('paid_date')
+                    ->label('Data de Pagamento')
                     ->date('d/m/Y'),    
-                TextColumn::make('recurrence'),
+                TextColumn::make('recurrence_month')
+                    ->label('Total de Meses'),
                 TextColumn::make('start_date')
+                    ->label('Data de Início')
                     ->date('d/m/Y'),
                 TextColumn::make('end_date')
+                    ->label('Data de Término')
                     ->date('d/m/Y'),
             ])
             ->filters([

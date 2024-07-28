@@ -26,9 +26,9 @@ class ExpensesSeeder extends Seeder
                 'description' => $faker->text,
                 'amount' => $faker->randomFloat(2, 100, 1000),
                 'amount_paid' => $faker->randomFloat(2, 100, 1000),
-                'expiration_date' => $faker->date(),
+                'expiration_day' => $faker->dayOfMonth(),
                 'paid_date'=> $faker->date(),
-                'recurrence' => $faker->randomElement(['daily', 'weekly', 'monthly', 'yearly']),
+                'recurrence_month' => $faker->randomNumber(1),
                 'start_date' => $faker->date(),
                 'end_date' => $faker->date(),
                 'user_id' => $user->id
