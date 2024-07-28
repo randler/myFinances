@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "ariaieboy/filament-currency": "^1.8",
+        "blade-ui-kit/blade-heroicons": "^2.4",
         "chiiya/filament-access-control": "^2.4",
         "filament/actions": "^3.2",
         "filament/filament": "^3.2",
@@ -14,7 +15,8 @@
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
-        "malzariey/filament-daterangepicker-filter": "^2.7"
+        "malzariey/filament-daterangepicker-filter": "^2.7",
+        "owenvoke/blade-fontawesome": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
