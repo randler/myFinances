@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ExpensesResource\Pages;
 use App\Filament\Resources\ExpensesResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Filament\Tables;
 
 class ListExpenses extends ListRecords
 {

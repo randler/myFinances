@@ -21,6 +21,16 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
         return $expenses;
     }
 
+    public function getCurrentMonthExpenses()
+    {
+        return Expenses::where('user_id', auth()->id())
+            ->whereBetween(
+                'expiration_date',
+                [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth(),
+                Carbon::now()->startOfYear(), Carbon::now()->endOfYear()]
+        );  
+    }
+
     public function getMonthExpensesPaid(): float
     {
         $expenses = Expenses::whereBetween(

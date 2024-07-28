@@ -72,6 +72,10 @@ class ExpensesResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $userId = auth()->user()->id;
+                $query->where('user_id', $userId);
+            })
             ->columns([
                 TextColumn::make('title')
                     ->searchable()
@@ -129,7 +133,12 @@ class ExpensesResource extends Resource
                     ->placeholder('End Date'),
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
