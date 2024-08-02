@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Messages;
+use Illuminate\Database\Eloquent\Collection;
 
 class MessageRepositories
 {
@@ -11,9 +12,9 @@ class MessageRepositories
      * 
      * @param int $roomId
      * 
-     * @return Messages
+     * @return Collection
      */
-    public function getAllMessagesByRoom(int $roomId): Messages
+    public function getAllMessagesByRoom(int $roomId): Collection
     {
         return Messages::where('room_id', $roomId)
             ->get();
