@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Casts\MoneyCast;
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -100,7 +99,9 @@ class Expenses extends Model
 
     private function setEdnDate()
     {
-        $this->end_date = Carbon::parse($this->start_date)->addMonth($this->recurrence_month);
+        $endDate = Carbon::parse($this->start_date)
+            ->addMonths(intval($this->recurrence_month));
+        $this->end_date = $endDate;
     }
 
 }
