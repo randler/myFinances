@@ -40,6 +40,9 @@ class ExpensesWidget extends BaseWidget
             TextColumn::make('amount_debit_month')
                 ->label('Despesa Mensal')
                 ->money('brl'),
+            TextColumn::make('actual_value')
+                ->label('Despesa Mês Atual')
+                ->money('brl'),
             TextColumn::make('recurrence_month_formatted')
                 ->label('Parcela'),
             TextColumn::make('total_parcel_paid')

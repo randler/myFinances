@@ -32,7 +32,8 @@ class Expenses extends Model
     protected $appends = [
         'amount_debit_month',
         'recurrence_month_formatted',
-        'total_parcel_paid'
+        'total_parcel_paid',
+        'actual_value'
     ];
 
     public function getAmountDebitMonthAttribute()
@@ -58,7 +59,7 @@ class Expenses extends Model
     public function getRecurrenceMonthFormattedAttribute()
     {
         // add 10 month
-        $actualMonth = Carbon::now();
+        $actualMonth = Carbon::now()->addMonths(3);
         $lastMonth = Carbon::parse($this->end_date);
         $total = $this->recurrence_month;
         // return diference value int months
@@ -67,6 +68,32 @@ class Expenses extends Model
         $remaining = $total - $diffMonth;
         if($remaining <= 0) return "Finalizado";
         return "{$remaining}/{$total}";
+    }
+
+    public function getActualValueAttribute()
+    {
+        $valueParcel = $this->amount / $this->recurrence_month;   
+        $totalParcelPaid = 0;
+        $valueParcelPaid = 0;
+        while ($valueParcelPaid < $this->amount_paid) {
+            $totalParcelPaid++;
+            $valueParcelPaid += $valueParcel;
+        }
+
+
+        $actualMonth = Carbon::now()->addMonths(3);
+        $lastMonth = Carbon::parse($this->end_date);
+        $total = $this->recurrence_month;
+        // return diference value int months
+        $diffMonth = floor($actualMonth->diffInMonths($lastMonth));
+        $diffMonth = $diffMonth < 0 ? $total : $diffMonth;
+        $remaining = $total - $diffMonth;
+        
+        if( $remaining > $totalParcelPaid ) {
+            return $valueParcel * ($remaining - $totalParcelPaid);
+        } else {
+            return 0;
+        }
     }
 
     public function user()
@@ -91,7 +118,7 @@ class Expenses extends Model
      */
     public function update(array $attributes = [], array $options = [])
     {
-        if ($this->recurrence_month) {
+        if ($this->recurrence_month && !$this->end_date) {
             $this->setEdnDate();
         }
         parent::update($attributes, $options);
