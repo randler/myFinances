@@ -45,6 +45,14 @@ class AdminPanelProvider extends PanelProvider
                 PanelsRenderHook::USER_MENU_BEFORE,
                 fn (): string => Blade::render('@livewire(\'messages\')'),
             )
+            ->renderHook(
+                PanelsRenderHook::BODY_END,
+                fn (): string => Blade::render('@livewire(\'new-chat\')'),
+            )
+            ->renderHook(
+                PanelsRenderHook::BODY_END,
+                fn (): string => Blade::render('@livewire(\'chat-messages\')'),
+            )
             ->userMenuItems([
                 'profile' => MenuItem::make()
                     ->label('Edit profile')
