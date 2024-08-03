@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('rooms', function(Blueprint $table) {
             $table->id();
-            $table->foreignId('sender_id')->references('id')->on('users');
-            $table->foreignId('receiver_id')->references('id')->on('users');
+            $table->foreignId('sender_id')
+                ->comment('The user who created the room')
+                ->references('id')
+                ->on('users');
+            $table->foreignId('receiver_id')
+                ->comment('The user who received the room')
+                ->references('id')
+                ->on('users');
             $table->timestamps();
         });
     }

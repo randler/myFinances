@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_id')->references('id')->on('rooms');
-            $table->foreignId('sender')->references('id')->on('users');
+            $table->foreignId('room_id')
+                ->comment('The room where the message was sent')
+                ->references('id')
+                ->on('rooms');
+            $table->foreignId('sender')
+                ->comment('The user who sent the message')
+                ->references('id')
+                ->on('users');
             $table->text('content');
             $table->timestamps();
         });
