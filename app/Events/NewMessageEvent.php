@@ -44,7 +44,7 @@ class NewMessageEvent implements ShouldBroadcast
     {
         return [
             'room' => $this->room,
-            'messages' => $this->room->messages,
+            'messages' => $this->room->messages
         ];
     }
 
