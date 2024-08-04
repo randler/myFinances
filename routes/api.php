@@ -39,5 +39,4 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth:sanctum'], function() {
     Route::get('/messages/{room_id}', [MessageController::class,'list'])->name('messages.list');
     Route::post('/messages/store', [MessageController::class,'store'])->name('messages.store');
 
-    Route::post('/messages/unread', [MessageController::class,'unread'])->name('messages.unread');
 });

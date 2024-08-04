@@ -65,30 +65,4 @@ class MessageController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
-
-    /**
-     * Get total unread message
-     * 
-     * @param Request $request
-     * 
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function unread(Request $request)
-    {
-        try {
-            $room = Rooms::find($request->room_id);
-            $totalUnread = $room->totalUnread();
-            return response()->json([
-                'message' => 'Total unread message',
-                'total_unread' => $totalUnread
-            ], Response::HTTP_OK);
-        } catch (\Exception $e) {
-            Log::error($e->getMessage() . $e->getTraceAsString());
-            return response()->json([
-                'message' => $e->getMessage(),
-                'total_unread' => 0
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
-
-    }
 }

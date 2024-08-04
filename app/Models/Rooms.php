@@ -63,24 +63,6 @@ class Rooms extends Model
         return User::find($userIdDirect);
     }
 
-
-    /**
-     * Get total unread message
-     * 
-     * @return int
-     */
-    public function totalUnread()
-    {
-        $user = $this->getUserRoom();
-        return $this->messages()
-            ->where('is_read', 0)
-            ->where(function ($query) use ($user) {
-                $query->where('sender', $user->id)
-                    ->orWhere('receiver', $user->id);
-            })
-            ->count();
-    }
-
     /**
      * Save the model to the database.
      *
