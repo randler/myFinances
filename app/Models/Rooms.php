@@ -14,6 +14,14 @@ class Rooms extends Model
         'receiver_id'
     ];
 
+    protected $appends = [
+        'messages',
+    ];
+
+    public function getMessagesAttribute()
+    {
+        return $this->messages()->get();
+    }
 
     /**
      * Get the user that owns the Rooms

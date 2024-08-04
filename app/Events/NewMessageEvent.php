@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class NewMessageEvent
+class NewMessageEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -31,7 +31,22 @@ class NewMessageEvent
     public function broadcastOn(): array
     {
         return [
-            new PrivateChannel('room.' . $this->room->id),
+            new PrivateChannel('rooms.' . $this->room->id),
         ];
     }
+
+    /**
+     * Get the data to broadcast.
+     * 
+     * @return array<string, mixed>
+     */
+    public function broadcastWith(): array
+    {
+        return [
+            'room' => $this->room,
+            'messages' => $this->room->messages,
+        ];
+    }
+
+
 }

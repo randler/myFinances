@@ -19,7 +19,7 @@ class ChatMessages extends Component
     public function getListeners()
     {
         return [
-            'echo-private:room.'. $this->roomId .',NewMessageEvent' => '$refresh',
+            "echo-private:rooms.{$this->roomId},NewMessageEvent" => '$refresh',
         ];
     }
 
@@ -37,6 +37,8 @@ class ChatMessages extends Component
         $this->messages = Messages::where('room_id', $roomId)->get();
         // open modal with chat room
         $this->dispatch('open-modal', id: 'chat-room-message');
+
+        $this->getListeners();
     }
 
     public function sendMessage()
