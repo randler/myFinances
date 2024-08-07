@@ -6,6 +6,7 @@ use App\Models\Expenses;
 use App\Models\FinanceAssets;
 use App\Repositories\Interfaces\FinanceRepositoryInterface;
 use Carbon\Carbon;
+use NumberFormatter;
 
 class FinanceAssetsRepositories implements FinanceRepositoryInterface
 {
@@ -17,7 +18,7 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
                 [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()]
             )->get()
             ->sum('amount');
-        return $total;
+        return round($total, 2);
     }
 
     public function getCurrentMonthBalance()
@@ -46,7 +47,7 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
             ->sum('amount'); 
 
         $total = $assets - $expenses;
-        
-        return $total;
+
+        return round($total,2);
     }    
 }

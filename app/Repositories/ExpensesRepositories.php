@@ -18,7 +18,7 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
             ->sum('amount');
 
         // format to BRL
-        return $expenses;
+        return round($expenses, 2);
     }
 
     public function getCurrentMonthExpenses()
@@ -45,7 +45,7 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
             ->sum('amount_paid');
 
         // format to BRL
-        return $expenses;
+        return round($expenses, 2);
     }
 
     public function getMonthExpensesToPaid(): float
@@ -65,7 +65,7 @@ class ExpensesRepositories implements ExpensesRepositoryInterface
         $total = $expensesToPaid - $expensesPaid;
 
         // format to BRL
-        return $total;
+        return round($total, 2);
     }
     
 }
