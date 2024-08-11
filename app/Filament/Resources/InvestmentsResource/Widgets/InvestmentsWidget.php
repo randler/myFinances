@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\InvestmentsResource\Widgets;
 
 use App\Models\Investments;
+use App\Repositories\InvestmentsRepositories;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -14,14 +15,12 @@ class InvestmentsWidget extends BaseWidget
     protected static ?int $sort = 4;
 
     public function table(Table $table): Table
-    {
+    {   
+        $repository = new InvestmentsRepositories();
         return $table
             ->paginated(false)
             ->query(
-                // pegar os investimentos do mês
-                Investments::query()
-                    ->latest()
-                    ->limit(4)
+                $repository->getCurrentMonthBalance()
             )
             ->columns([
                 TextColumn::make('title'),

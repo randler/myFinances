@@ -3,9 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\InvestmentsResource\Pages;
-use App\Filament\Resources\InvestmentsResource\RelationManagers;
 use App\Models\Investments;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -17,7 +15,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Date;
 use Malzariey\FilamentDaterangepickerFilter\Filters\DateRangeFilter;
 
@@ -31,26 +28,38 @@ class InvestmentsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
+                TextInput::make('title')
+                    ->label('Titulo'),
                 Textarea::make('description')
+                    ->label('Descrição')
                     ->maxLength(255)
                     ->rows(5),
                 TextInput::make('amount')
+                    ->label('Valor')
                     ->numeric()
                     ->inputMode('decimal')
                     ->prefix('R$'),
-                ToggleButtons::make('recurrence')
+                    ToggleButtons::make('recurrence')
+                    ->label('Recorrencia')
+                    ->colors([
+                        'daily' => 'info',
+                        'weekly' => 'success',
+                        'monthly' => 'warning',
+                        'yearly' => 'danger',
+                    ])
                     ->options([
-                        'daily' => 'Daily',
-                        'weekly' => 'Weekly',
-                        'monthly' => 'Monthly',
-                        'yearly' => 'Yearly',
+                        'daily' => 'Dia',
+                        'weekly' => 'Semana',
+                        'monthly' => 'Mês',
+                        'yearly' => 'ano',
                     ]),
                 DatePicker::make('start_date')
+                    ->label('Data de Inicio')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
                     ->minDate(Date::now()),
                 DatePicker::make('end_date')
+                    ->label('Data do fim')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
                     ->nullable()
@@ -61,12 +70,17 @@ class InvestmentsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(function (Builder $query) {
+                $userId = auth()->user()->id;
+                $query->where('user_id', $userId);
+            })
             ->columns([
                 TextColumn::make('title')
+                ->label('Titulo')
                 ->searchable()
                 ->sortable(),
                 TextColumn::make('description')
-                ->color('gray')
+                ->label('Descrição')
                 ->limit(50)
                 ->tooltip(function (TextColumn $column): ?string {
                     $state = $column->getState();
@@ -79,29 +93,41 @@ class InvestmentsResource extends Resource
                     return $state;
                 }),
                 TextColumn::make('amount')
+                    ->label('Valor')
                     ->money('BRL'),
-                TextColumn::make('recurrence'),
+                    TextColumn::make('recurrence')
+                    ->label('Recorrencia')
+                    ->badge()
+                    ->color(fn (string $state): string => match ($state) {
+                        'daily' => 'info',
+                        'weekly' => 'success',
+                        'monthly' => 'warning',
+                        'yearly' => 'danger'
+                    }),
                 TextColumn::make('start_date')
+                    ->label('Data de Inicio')
                     ->date('d/m/Y'),
                 TextColumn::make('end_date')
+                    ->label('Dato do Fim')
                     ->date('d/m/Y'),
             ])
             ->filters([
                 SelectFilter::make('recurrence')
+                    ->label('Recorrencia')
                     ->multiple()
                     ->options([
-                        'daily' => 'Daily',
-                        'weekly' => 'Weekly',
-                        'monthly' => 'Monthly',
-                        'yearly' => 'Yearly',
+                        'daily' => 'Dia',
+                        'weekly' => 'Semana',
+                        'monthly' => 'Mês',
+                        'yearly' => 'Ano',
                     ]),
                 DateRangeFilter::make('start_date')
-                    ->label('Start Date')
-                    ->placeholder('Start Date')
+                    ->label('Data de Inico')
+                    ->placeholder('Data de Inicio')
                     ->displayFormat('DD/MM/YYYY'),
                 DateRangeFilter::make('end_date')
-                    ->label('End Date')
-                    ->placeholder('End Date'),
+                    ->label('Data do Fim')
+                    ->placeholder('Data do Fim'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

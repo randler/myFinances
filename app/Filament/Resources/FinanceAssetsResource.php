@@ -26,12 +26,16 @@ class FinanceAssetsResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title'),
-                TextInput::make('description'),
+                TextInput::make('title')
+                    ->label('Titulo'),
+                TextInput::make('description')
+                    ->label('Descrição'),
                 TextInput::make('amount')
+                    ->label('Valor')
                     ->currencyMask(thousandSeparator: ',', decimalSeparator: '.', precision: 2)
                     ->prefix('R$'),
                 ToggleButtons::make('recurrence')
+                    ->label('Recorrencia')
                     ->colors([
                         'daily' => 'info',
                         'weekly' => 'success',
@@ -39,15 +43,17 @@ class FinanceAssetsResource extends Resource
                         'yearly' => 'danger',
                     ])
                     ->options([
-                        'daily' => 'Daily',
-                        'weekly' => 'Weekly',
-                        'monthly' => 'Monthly',
-                        'yearly' => 'Yearly',
+                        'daily' => 'Dia',
+                        'weekly' => 'Semana',
+                        'monthly' => 'Mês',
+                        'yearly' => 'ano',
                     ]),
                 DatePicker::make('start_date')
+                    ->label('Data de Inicio')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR'),
                 DatePicker::make('end_date')
+                    ->label('Data do fim')
                     ->timezone('America/Sao_Paulo')
                     ->locale('pt-BR')
                     ->nullable(),
@@ -64,12 +70,16 @@ class FinanceAssetsResource extends Resource
             })
             ->columns([
                 TextColumn::make('title')
+                    ->label('Titulo')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('description'),
+                TextColumn::make('description')
+                    ->label('Descrição'),
                 TextColumn::make('amount')
+                    ->label('Valor')
                     ->money('BRL'),
                 TextColumn::make('recurrence')
+                    ->label('Recorrencia')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
                         'daily' => 'info',
@@ -78,26 +88,29 @@ class FinanceAssetsResource extends Resource
                         'yearly' => 'danger'
                     }),
                 TextColumn::make('start_date')
+                    ->label('Data do Inicio')
                     ->date('d/m/Y'),
                 TextColumn::make('end_date')
+                    ->label('Data do Fim')
                     ->date('d/m/Y')
                 
             ])
             ->filters([
                 SelectFilter::make('recurrence')
+                    ->label('Recorrencia')
                     ->multiple()
                     ->options([
-                        'daily' => 'Daily',
-                        'weekly' => 'Weekly',
-                        'monthly' => 'Monthly',
-                        'yearly' => 'Yearly',
+                        'daily' => 'Dia',
+                        'weekly' => 'Semana',
+                        'monthly' => 'Mês',
+                        'yearly' => 'Ano',
                     ]),
                 DateRangeFilter::make('start_date')
-                    ->label('Start Date')
+                    ->label('Data de Inicio')
                     ->placeholder('Start Date')
                     ->displayFormat('DD/MM/YYYY'),
                 DateRangeFilter::make('end_date')
-                    ->label('End Date')
+                    ->label('Data do Fim')
                     ->placeholder('End Date'),
             ])
             ->actions([

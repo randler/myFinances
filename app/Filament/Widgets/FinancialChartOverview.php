@@ -18,14 +18,16 @@ class FinancialChartOverview extends ChartWidget
         $expensesRepository = new ExpensesRepositories();
         $assetsRepository = new FinanceAssetsRepositories();
 
-        $ballanceInitial = $assetsRepository->getMonthBalance();
+        
+        $ballanceInitial= $assetsRepository->getMonthBalance();
         $remaingBallance = $assetsRepository->getMonthEconomy();
         $expenses = $expensesRepository->getMonthExpenses();
         $expensesPaid = $expensesRepository->getMonthExpensesPaid();
         $expensesToPaid = $expensesRepository->getMonthExpensesToPaid();
+        
         return [
             'datasets' => [
-                [
+                [   
                     'label' => 'Despesas Planejadas do Mês',
                     'data' => [$ballanceInitial, $remaingBallance, $expenses, $expensesPaid, $expensesToPaid],
                     'backgroundColor' => ['#334960', '#334960', '#ff392b', '#17ad23', '#f46524'],

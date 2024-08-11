@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\FinanceAssetsResource\Widgets;
 
 use App\Models\FinanceAssets;
+use App\Repositories\FinanceAssetsRepositories;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -14,20 +15,20 @@ class FinanceAssetsWidgets extends BaseWidget
     protected static ?int $sort = 5;
 
     public function table(Table $table): Table
-    {
+    {   
+        $repository = new FinanceAssetsRepositories();
         return $table
             ->paginated(false)
             ->query(
-                // pegar as entrada do mês
-                FinanceAssets::query()
-                    ->latest()
-                    ->limit(4)
+                $repository->getCurrentMonthBalance()
             )
             ->columns([
                 TextColumn::make('title'),
                 TextColumn::make('amount')
                     ->label("Saldo")
                     ->money('brl'),
+                TextColumn::make('start_date')
+                    ->date('d/m/Y'),
             ]);
     }
 

@@ -3,27 +3,26 @@
 namespace App\Repositories;
 
 use App\Models\Expenses;
-use App\Models\FinanceAssets;
-use App\Repositories\Interfaces\FinanceRepositoryInterface;
+use App\Models\Investments;
+use App\Repositories\Interfaces\InvestmentsRepositoryInterface;
 use Carbon\Carbon;
-use NumberFormatter;
 
-class FinanceAssetsRepositories implements FinanceRepositoryInterface
+class InvestmentsRepositories implements InvestmentsRepositoryInterface
 {
     public function getMonthBalance(): float
     {
-        $total = FinanceAssets::where('user_id', auth()->id())
+        $total = Investments::where('user_id', auth()->id())
             ->whereBetween(
                 'created_at', 
                 [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()]
             )->get()
             ->sum('amount');
-        return round($total, 2);
+        return $total;
     }
 
     public function getCurrentMonthBalance()
     {   
-        return FinanceAssets::where('user_id', auth()->id())
+        return Investments::where('user_id', auth()->id())
             ->whereBetween(
                 'start_date', 
                 [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth(), 
@@ -33,7 +32,7 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
 
     public function getMonthEconomy(): float
     {
-        $assets = FinanceAssets::where('user_id', auth()->id())
+        $assets = Investments::where('user_id', auth()->id())
             ->whereBetween(
             'created_at',
             [Carbon::now()->startOfMonth(), Carbon::now()->endOfMonth()]
@@ -47,7 +46,7 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
             ->sum('amount'); 
 
         $total = $assets - $expenses;
-
-        return round($total,2);
+        
+        return $total;
     }    
 }
