@@ -1,6 +1,5 @@
 <?php
 
-use App\Events\NewMessageEvent;
 use App\Http\Controllers\Api\FinanceAssetsController;
 use App\Http\Controllers\api\MessageController;
 use App\Http\Controllers\api\RoomController;
@@ -9,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Validation\ValidationException;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -49,4 +47,8 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth:sanctum'], function() {
 Route::group(['prefix' => 'finance', 'middleware' => 'auth:sanctum'], function() {
     Route::get('/list', [FinanceAssetsController::class,'list'])->name('finance.list');
     Route::get('/list-month', [FinanceAssetsController::class, 'listMonth'])->name('finance.listMonth');
+    Route::post('/find', [FinanceAssetsController::class, 'find'])->name('finance.find');
+    Route::post('/store', [FinanceAssetsController::class, 'store'])->name('finance.store');
+    Route::put('/update', [FinanceAssetsController::class, 'update'])->name('finance.update');
+    Route::delete('/delete', [FinanceAssetsController::class, 'delete'])->name('finance.delete');
 });

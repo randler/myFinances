@@ -11,10 +11,12 @@ class FinanceAssets extends Model
 {
     use HasFactory;
     
+    protected $table = 'finance_assets';
+
     protected $casts = [
-        'amount' => MoneyCast::class,
-        'start_date' => 'datetime',
-        'end_date' => 'datetime',
+        'amount' => 'float',
+        'start_date' => 'datetime:Y-m-d',
+        'end_date' => 'datetime:Y-m-d',
     ];
 
     protected $fillable = [

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('finance_assets', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
+            $table->string('title');
             $table->text('description')->nullable();
-            $table->decimal('amount', 15, 2)->nullable();
+            $table->decimal('amount', 15, 2);
             // recurrence
             $table->enum('recurrence', ['daily', 'weekly', 'monthly', 'yearly'])->nullable();
             $table->date('start_date')->nullable();
