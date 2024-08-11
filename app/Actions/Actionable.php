@@ -4,7 +4,7 @@ namespace App\Actions;
 
 abstract class Actionable
 {
-    public abstract function handle();
+    public abstract function handle(...$arguments);
 
 
     /**

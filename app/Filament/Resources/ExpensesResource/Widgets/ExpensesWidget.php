@@ -18,7 +18,7 @@ use Illuminate\Contracts\View\View;
 
 class ExpensesWidget extends BaseWidget
 {   
-    protected static ?string $heading = 'Despesas Planejadas do Mês';
+    protected static ?string $heading = 'Despesas Planejadas do Mês 6 ';
     protected int | string | array $columnSpan = 'full';
     protected static ?int $sort = 6;
 

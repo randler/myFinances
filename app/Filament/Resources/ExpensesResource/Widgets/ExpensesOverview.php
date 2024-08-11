@@ -8,7 +8,7 @@ use Filament\Widgets\ChartWidget;
 
 class ExpensesOverview extends ChartWidget
 {
-    protected static ?string $heading = 'Despesas Planejadas do Mês';
+    protected static ?string $heading = 'Despesas Planejadas do Mês 2';
     protected int | string | array $columnSpan = 'full';
     protected static ?int $sort = 2;
 

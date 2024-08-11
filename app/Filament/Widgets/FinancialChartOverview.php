@@ -9,7 +9,7 @@ use Filament\Widgets\ChartWidget;
 
 class FinancialChartOverview extends ChartWidget
 {
-    protected static ?string $heading = 'Despesas Planejadas do Mês';
+    protected static ?string $heading = 'Despesas Planejadas do Mês 1 ';
     protected int | string | array $columnSpan = 'full';
     protected static ?int $sort = 1;
 
@@ -47,10 +47,36 @@ class FinancialChartOverview extends ChartWidget
     {
         return RawJs::make(<<<JS
         {
+            plugins: {
+                datalabels: {
+                    anchor: 'start',
+                    align: 'start',
+                    position: 'chartArea',
+                    formatter: function(value, context) {
+                        value = value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+                        return  value;
+                    },
+                    color: function(context) {
+                        let index = context.dataIndex;
+                        let value = context.dataset.data[index];
+
+                        if(value > 200 ) {
+                            return '#FFF';
+                        } else if(value < 0) {
+                            return '#FF0000';
+                        }
+
+                        return '#000';
+                    },
+                    font: {
+                        weight: 'bold'
+                    }
+                }
+            },
             scales: {
                 y: {
                     ticks: {
-                        callback: (value) => 'R$' + value,
+                        callback: (value) => 'R$ ' + value,
                     },
                 },
             },

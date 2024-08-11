@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\FinanceAssetsResource\Widgets;
 
+use App\Actions\CurrencyCast;
 use App\Models\FinanceAssets;
 use App\Repositories\ExpensesRepositories;
 use App\Repositories\FinanceAssetsRepositories;
@@ -18,19 +19,19 @@ class StatsAssets extends BaseWidget
         $economy = $assetsRepository->getMonthEconomy();
         $colorEconomy = $economy > 0 ? 'success' : 'danger';
         return [
-            Stat::make('Entradas do Mês', $assetsRepository->getMonthBalance())
+            Stat::make('Entradas do Mês', CurrencyCast::run($assetsRepository->getMonthBalance()))
                 ->description('Saldo total do mês')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color('success'),
-            Stat::make('Economia do Mês', $economy)
+            Stat::make('Economia do Mês', CurrencyCast::run($economy))
                 ->description('Economia total do mês')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color($colorEconomy),
-            Stat::make('Despesas do mês', $expensesRepository->getMonthExpenses())
+            Stat::make('Despesas do mês', CurrencyCast::run($expensesRepository->getMonthExpenses()))
                 ->description('Total de despesas do mês')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color('danger'),
-            Stat::make('Despesas Restantes', $expensesRepository->getMonthExpensesToPaid())
+            Stat::make('Despesas Restantes', CurrencyCast::run($expensesRepository->getMonthExpensesToPaid()))
                 ->description('Total de despesas restantes do mês')
                 ->descriptionIcon('heroicon-o-currency-dollar')
                 ->color('danger'),
