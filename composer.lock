@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b34c5a02237784cded99700cd4255a00",
+    "content-hash": "6755662dfd80617d8153a936c2dd0da4",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -2822,57 +2822,6 @@
             "time": "2024-01-04T16:10:04+00:00"
         },
         {
-            "name": "laravellegends/pt-br-validator",
-            "version": "11.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/LaravelLegends/pt-br-validator.git",
-                "reference": "ab89fcb32661bc1a95c5836489ddc68f61a95d34"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/LaravelLegends/pt-br-validator/zipball/ab89fcb32661bc1a95c5836489ddc68f61a95d34",
-                "reference": "ab89fcb32661bc1a95c5836489ddc68f61a95d34",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0 || ^10.0 || ^11.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0",
-                "phpunit/phpunit": "^8.3 || ^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaravelLegends\\PtBrValidator\\ValidatorProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelLegends\\PtBrValidator\\": "src/pt-br-validator"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Wallace de Souza Vizerra",
-                    "email": "wallacemaxters@gmail.com"
-                }
-            ],
-            "description": "Uma biblioteca contendo validações de formatos Brasileiros, para o Laravel",
-            "support": {
-                "issues": "https://github.com/LaravelLegends/pt-br-validator/issues",
-                "source": "https://github.com/LaravelLegends/pt-br-validator/tree/11.0.0"
-            },
-            "time": "2024-03-18T20:18:50+00:00"
-        },
-        {
             "name": "league/commonmark",
             "version": "2.5.1",
             "source": {
@@ -3509,80 +3458,6 @@
                 }
             ],
             "time": "2024-03-23T07:42:40+00:00"
-        },
-        {
-            "name": "leandrocfe/filament-ptbr-form-fields",
-            "version": "3.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leandrocfe/filament-ptbr-form-fields.git",
-                "reference": "244ba03aa2c22060ff7aaa2d5ea6053424f45ed4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leandrocfe/filament-ptbr-form-fields/zipball/244ba03aa2c22060ff7aaa2d5ea6053424f45ed4",
-                "reference": "244ba03aa2c22060ff7aaa2d5ea6053424f45ed4",
-                "shasum": ""
-            },
-            "require": {
-                "filament/filament": "^3.0",
-                "illuminate/contracts": "^10.0 || ^11.0",
-                "laravellegends/pt-br-validator": "^10.0 || ^11.0",
-                "php": "^8.1 || ^8.2",
-                "spatie/laravel-package-tools": "^1.14.0"
-            },
-            "require-dev": {
-                "larastan/larastan": "^2.9.2",
-                "laravel/pint": "^1.0",
-                "nunomaduro/collision": "^7.9",
-                "orchestra/testbench": "^8.0",
-                "pestphp/pest": "^2.0",
-                "pestphp/pest-plugin-arch": "^2.0",
-                "pestphp/pest-plugin-laravel": "^2.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan-deprecation-rules": "^1.0",
-                "phpstan/phpstan-phpunit": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Leandrocfe\\FilamentPtbrFormFields\\FilamentPtbrFormFieldsServiceProvider"
-                    ],
-                    "aliases": {
-                        "FilamentPtbrFormFields": "Leandrocfe\\FilamentPtbrFormFields\\Facades\\FilamentPtbrFormFields"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Leandrocfe\\FilamentPtbrFormFields\\": "src/",
-                    "Leandrocfe\\FilamentPtbrFormFields\\Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Leandro Costa Ferreira",
-                    "email": "leandrocfe@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Brazilian pt-BR form fields.",
-            "homepage": "https://github.com/leandrocfe/filament-ptbr-form-fields",
-            "keywords": [
-                "filament-ptbr-form-fields",
-                "laravel",
-                "leandrocfe"
-            ],
-            "support": {
-                "issues": "https://github.com/leandrocfe/filament-ptbr-form-fields/issues",
-                "source": "https://github.com/leandrocfe/filament-ptbr-form-fields/tree/3.0.8"
-            },
-            "time": "2024-04-22T20:59:35+00:00"
         },
         {
             "name": "livewire/livewire",
@@ -4387,6 +4262,68 @@
                 }
             ],
             "time": "2024-07-26T05:48:04+00:00"
+        },
+        {
+            "name": "owenvoke/blade-fontawesome",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/owenvoke/blade-fontawesome.git",
+                "reference": "86eddacc1b1be9791b3c8fca4a9ef77db6a07cdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/owenvoke/blade-fontawesome/zipball/86eddacc1b1be9791b3c8fca4a9ef77db6a07cdc",
+                "reference": "86eddacc1b1be9791b3c8fca4a9ef77db6a07cdc",
+                "shasum": ""
+            },
+            "require": {
+                "blade-ui-kit/blade-icons": "^1.5",
+                "illuminate/support": "^10.34|^11.0",
+                "php": "^8.1",
+                "thecodingmachine/safe": "^2.5"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.12|^9.0",
+                "pestphp/pest": "^2.26",
+                "phpstan/phpstan": "^1.10",
+                "symfony/var-dumper": "^6.3",
+                "thecodingmachine/phpstan-safe-rule": "^1.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "OwenVoke\\BladeFontAwesome\\BladeFontAwesomeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "OwenVoke\\BladeFontAwesome\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A package to easily make use of Font Awesome in your Laravel Blade views",
+            "support": {
+                "issues": "https://github.com/owenvoke/blade-fontawesome/issues",
+                "source": "https://github.com/owenvoke/blade-fontawesome/tree/v2.6.0"
+            },
+            "funding": [
+                {
+                    "url": "https://ecologi.com/owenvoke?gift-trees",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/owenvoke",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-02-27T16:15:55+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7934,6 +7871,145 @@
                 }
             ],
             "time": "2024-07-26T12:41:01+00:00"
+        },
+        {
+            "name": "thecodingmachine/safe",
+            "version": "v2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thecodingmachine/safe.git",
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thecodingmachine/safe/zipball/3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
+                "reference": "3115ecd6b4391662b4931daac4eba6b07a2ac1f0",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.5",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.2",
+                "thecodingmachine/phpstan-strict-rules": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "deprecated/apc.php",
+                    "deprecated/array.php",
+                    "deprecated/datetime.php",
+                    "deprecated/libevent.php",
+                    "deprecated/misc.php",
+                    "deprecated/password.php",
+                    "deprecated/mssql.php",
+                    "deprecated/stats.php",
+                    "deprecated/strings.php",
+                    "lib/special_cases.php",
+                    "deprecated/mysqli.php",
+                    "generated/apache.php",
+                    "generated/apcu.php",
+                    "generated/array.php",
+                    "generated/bzip2.php",
+                    "generated/calendar.php",
+                    "generated/classobj.php",
+                    "generated/com.php",
+                    "generated/cubrid.php",
+                    "generated/curl.php",
+                    "generated/datetime.php",
+                    "generated/dir.php",
+                    "generated/eio.php",
+                    "generated/errorfunc.php",
+                    "generated/exec.php",
+                    "generated/fileinfo.php",
+                    "generated/filesystem.php",
+                    "generated/filter.php",
+                    "generated/fpm.php",
+                    "generated/ftp.php",
+                    "generated/funchand.php",
+                    "generated/gettext.php",
+                    "generated/gmp.php",
+                    "generated/gnupg.php",
+                    "generated/hash.php",
+                    "generated/ibase.php",
+                    "generated/ibmDb2.php",
+                    "generated/iconv.php",
+                    "generated/image.php",
+                    "generated/imap.php",
+                    "generated/info.php",
+                    "generated/inotify.php",
+                    "generated/json.php",
+                    "generated/ldap.php",
+                    "generated/libxml.php",
+                    "generated/lzf.php",
+                    "generated/mailparse.php",
+                    "generated/mbstring.php",
+                    "generated/misc.php",
+                    "generated/mysql.php",
+                    "generated/network.php",
+                    "generated/oci8.php",
+                    "generated/opcache.php",
+                    "generated/openssl.php",
+                    "generated/outcontrol.php",
+                    "generated/pcntl.php",
+                    "generated/pcre.php",
+                    "generated/pgsql.php",
+                    "generated/posix.php",
+                    "generated/ps.php",
+                    "generated/pspell.php",
+                    "generated/readline.php",
+                    "generated/rpminfo.php",
+                    "generated/rrd.php",
+                    "generated/sem.php",
+                    "generated/session.php",
+                    "generated/shmop.php",
+                    "generated/sockets.php",
+                    "generated/sodium.php",
+                    "generated/solr.php",
+                    "generated/spl.php",
+                    "generated/sqlsrv.php",
+                    "generated/ssdeep.php",
+                    "generated/ssh2.php",
+                    "generated/stream.php",
+                    "generated/strings.php",
+                    "generated/swoole.php",
+                    "generated/uodbc.php",
+                    "generated/uopz.php",
+                    "generated/url.php",
+                    "generated/var.php",
+                    "generated/xdiff.php",
+                    "generated/xml.php",
+                    "generated/xmlrpc.php",
+                    "generated/yaml.php",
+                    "generated/yaz.php",
+                    "generated/zip.php",
+                    "generated/zlib.php"
+                ],
+                "classmap": [
+                    "lib/DateTime.php",
+                    "lib/DateTimeImmutable.php",
+                    "lib/Exceptions/",
+                    "deprecated/Exceptions/",
+                    "generated/Exceptions/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP core functions that throw exceptions instead of returning FALSE on error",
+            "support": {
+                "issues": "https://github.com/thecodingmachine/safe/issues",
+                "source": "https://github.com/thecodingmachine/safe/tree/v2.5.0"
+            },
+            "time": "2023-04-05T11:54:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

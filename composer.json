@@ -7,15 +7,21 @@
     "require": {
         "php": "^8.2",
         "ariaieboy/filament-currency": "^1.8",
+        "blade-ui-kit/blade-heroicons": "^2.4",
         "chiiya/filament-access-control": "^2.4",
         "filament/actions": "^3.2",
         "filament/filament": "^3.2",
         "filament/widgets": "^3.2",
         "laravel/framework": "^11.9",
+        "laravel/horizon": "^5.27",
+        "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "leandrocfe/filament-ptbr-form-fields": "^3.0",
         "livewire/livewire": "^3.5",
-        "malzariey/filament-daterangepicker-filter": "^2.7"
+        "malzariey/filament-daterangepicker-filter": "^2.7",
+        "owenvoke/blade-fontawesome": "^2.6",
+        "predis/predis": "^2.2",
+        "pusher/pusher-php-server": "^7.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -23,7 +29,8 @@
         "laravel/sail": "^1.26",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^11.0.1"
+        "pestphp/pest": "^2.34",
+        "pestphp/pest-plugin-laravel": "^2.4"
     },
     "autoload": {
         "psr-4": {
