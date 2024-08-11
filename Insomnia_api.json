@@ -1,0 +1,639 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2024-08-11T18:48:02.477Z",
+    "__export_source": "insomnia.desktop.app:v9.3.3",
+    "resources": [{
+        "_id": "req_ccdd91d3d96a46e49001dfa360d007cb",
+        "parentId": "fld_421ed8bb38f441a1985f750d096912f5",
+        "modified": 1723395272278,
+        "created": 1722469457318,
+        "url": "localhost/api/login",
+        "name": "Login",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"email\": \"admin@mail.com\",\n\t\"password\": \"admin\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3"
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395272250,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "fld_421ed8bb38f441a1985f750d096912f5",
+        "parentId": "fld_0ee629d2265e45b98fda0aa7d1dc9da6",
+        "modified": 1723395260294,
+        "created": 1723395260294,
+        "name": "Auth",
+        "description": "",
+        "environment": {},
+        "environmentPropertyOrder": null,
+        "metaSortKey": -1723395260294,
+        "_type": "request_group"
+    }, {
+        "_id": "fld_0ee629d2265e45b98fda0aa7d1dc9da6",
+        "parentId": "fld_eb5eb1b9c20844738b702128e79de9f8",
+        "modified": 1723395290101,
+        "created": 1723395202337,
+        "name": "API",
+        "description": "",
+        "environment": {},
+        "environmentPropertyOrder": null,
+        "metaSortKey": -1723395290067,
+        "_type": "request_group"
+    }, {
+        "_id": "fld_eb5eb1b9c20844738b702128e79de9f8",
+        "parentId": "wrk_scratchpad",
+        "modified": 1723395286700,
+        "created": 1723395286700,
+        "name": "My Finance",
+        "description": "",
+        "environment": {},
+        "environmentPropertyOrder": null,
+        "metaSortKey": -1723395286700,
+        "_type": "request_group"
+    }, {
+        "_id": "wrk_scratchpad",
+        "parentId": null,
+        "modified": 1722469396735,
+        "created": 1722469396735,
+        "name": "Scratch Pad",
+        "description": "",
+        "scope": "collection",
+        "_type": "workspace"
+    }, {
+        "_id": "req_e336b9c610af40b1972bd8927deef401",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395239604,
+        "created": 1722797651952,
+        "url": "localhost/api/chat/rooms",
+        "name": "All My Rooms",
+        "description": "",
+        "method": "GET",
+        "body": {},
+        "parameters": [],
+        "headers": [{
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 4|ql3zW68X5W4yHAVWJ0ilZ4gNfRcfE6yYCUY0djTu721350e5",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236154,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "parentId": "fld_0ee629d2265e45b98fda0aa7d1dc9da6",
+        "modified": 1723395231240,
+        "created": 1723395231240,
+        "name": "Chat Message",
+        "description": "",
+        "environment": {},
+        "environmentPropertyOrder": null,
+        "metaSortKey": -1723395231240,
+        "_type": "request_group"
+    }, {
+        "_id": "req_c50f069032404fc8b20c828ec6bc3dc9",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395243898,
+        "created": 1722799657741,
+        "url": "localhost/api/chat/messages/1",
+        "name": "All Messages by room",
+        "description": "",
+        "method": "GET",
+        "body": {},
+        "parameters": [],
+        "headers": [{
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 1|VBT9BZvEIY9Zf30CT0iaRKSLSLr1Ncalb1Y4cO8S6d6480e0",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236079,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_2051d2a4ad754ef1a2182d088a53bee2",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395247503,
+        "created": 1722894459111,
+        "url": "localhost/api/chat/messages/unread/2",
+        "name": "Total Unread by room",
+        "description": "",
+        "method": "GET",
+        "body": {},
+        "parameters": [],
+        "headers": [{
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 5|hJEbNkGLP0SQ7UwPkqeL8pQjwRFmvWacxgZ9WWzH9898c14c",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236072.75,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_808279520dde4ced98aa71aa5746dd9f",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395245672,
+        "created": 1722890964828,
+        "url": "localhost/api/chat/messages/unread/total",
+        "name": "Total Unread",
+        "description": "",
+        "method": "GET",
+        "body": {},
+        "parameters": [],
+        "headers": [{
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 5|hJEbNkGLP0SQ7UwPkqeL8pQjwRFmvWacxgZ9WWzH9898c14c",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236066.5,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_f7017b634d4647e2b92987c2aa3988eb",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395251284,
+        "created": 1722797507977,
+        "url": "localhost/api/chat/room/store",
+        "name": "Create Room",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"receiver_id\": 1\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_c0594517c9f441a1beeeaddcee3d3166"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 4|ql3zW68X5W4yHAVWJ0ilZ4gNfRcfE6yYCUY0djTu721350e5",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236060.25,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_1e28f47be4a74777add2563e175693ce",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395236086,
+        "created": 1722797609261,
+        "url": "localhost/api/chat/messages/store",
+        "name": "Send Message",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"room_id\": 2,\n\t\"content\": \"mensagem de teste\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_c0594517c9f441a1beeeaddcee3d3166"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 4|ql3zW68X5W4yHAVWJ0ilZ4gNfRcfE6yYCUY0djTu721350e5",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395236054,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_61e44dbc594c44d2989f5224d5e334b2",
+        "parentId": "fld_c97bd573ce394da98d20b1709b17dbf8",
+        "modified": 1723395249746,
+        "created": 1722892502049,
+        "url": "localhost/api/chat/messages/read",
+        "name": "Read Message",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"room_id\": 2,\n\t\"message_id\": 8,\n\t\"read_previous\": true\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_c0594517c9f441a1beeeaddcee3d3166"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 5|hJEbNkGLP0SQ7UwPkqeL8pQjwRFmvWacxgZ9WWzH9898c14c",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395235954,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_8d775105b6f5442a81ef6d26306a8f85",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723395355053,
+        "created": 1723390118271,
+        "url": "localhost/api/finance/list",
+        "name": "all",
+        "description": "",
+        "method": "GET",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"datrt_date\": \"\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 1|06BjhsEt0pF3FBoQsDnBsXte7MwvJQLg3OU9oJ6oc31202c0",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218230,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "parentId": "fld_0ee629d2265e45b98fda0aa7d1dc9da6",
+        "modified": 1723395214418,
+        "created": 1723395214418,
+        "name": "Finance Assets",
+        "description": "",
+        "environment": {},
+        "environmentPropertyOrder": null,
+        "metaSortKey": -1723395214418,
+        "_type": "request_group"
+    }, {
+        "_id": "req_e0ec7704465646e68a60a967d1800a3e",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723398117295,
+        "created": 1723395318057,
+        "url": "localhost/api/finance/list-month",
+        "name": "list-month",
+        "description": "",
+        "method": "GET",
+        "body": {
+            "mimeType": "application/json",
+            "text": ""
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_b24ecf1b1a5d4cf5a6e179218abaebb3"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 2|oEz5mOd9DebQCb0tvOkzHIoLxtS5R8GUPhODA1Ut4802b97e",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218180,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_2064e3cb9e3746c28107e9ae85d4d155",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723401920284,
+        "created": 1723400828382,
+        "url": "localhost/api/finance/find",
+        "name": "find",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"title\": \"Freela\",\n\t\"start_date\": \"12/12/2022\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_b24ecf1b1a5d4cf5a6e179218abaebb3"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 2|oEz5mOd9DebQCb0tvOkzHIoLxtS5R8GUPhODA1Ut4802b97e",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218155,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_40f33c5e17aa497c8a8a10120480dbb9",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723400289856,
+        "created": 1723395341809,
+        "url": "localhost/api/finance/store",
+        "name": "store",
+        "description": "",
+        "method": "POST",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"title\": \"Salário Freela\",\n\t\"description\": \"Sálario Freela Troquei API\",\n\t\"amount\": 1000.00,\n\t\"recurrence\": \"monthly\",\n\t\"start_date\": \"15/07/2024\",\n\t\"end_date\": \"02/12/2024\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_e9251882c72b44a6b45786517a732a42"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 2|oEz5mOd9DebQCb0tvOkzHIoLxtS5R8GUPhODA1Ut4802b97e",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218130,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_9aed6298f5cf44eda0c1fb7869a585dd",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723400386491,
+        "created": 1723400342982,
+        "url": "localhost/api/finance/update",
+        "name": "update",
+        "description": "",
+        "method": "PUT",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"id\": 102,\n\t\"title\": \"Salário Freela\",\n\t\"description\": \"Sálario Freela Troquei API updated\",\n\t\"amount\": 1000.00,\n\t\"recurrence\": \"monthly\",\n\t\"start_date\": \"15/07/2024\",\n\t\"end_date\": \"02/12/2024\"\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_e9251882c72b44a6b45786517a732a42"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 2|oEz5mOd9DebQCb0tvOkzHIoLxtS5R8GUPhODA1Ut4802b97e",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218080,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "req_6c7f0a38a2af4a98a22fd510d319ea1d",
+        "parentId": "fld_0a9a5b436ed24f92b11a0172615f4cb3",
+        "modified": 1723400638284,
+        "created": 1723400617416,
+        "url": "localhost/api/finance/delete",
+        "name": "delete",
+        "description": "",
+        "method": "DELETE",
+        "body": {
+            "mimeType": "application/json",
+            "text": "{\n\t\"id\": 102\n}"
+        },
+        "parameters": [],
+        "headers": [{
+            "name": "Content-Type",
+            "value": "application/json",
+            "id": "pair_e9251882c72b44a6b45786517a732a42"
+        }, {
+            "name": "User-Agent",
+            "value": "insomnia/9.3.3",
+            "id": "pair_e858fb9a31bd43b092c439a7035a8c2e"
+        }, {
+            "id": "pair_b174bd96d39d4895b8f7894c9e92d46d",
+            "name": "Authorization",
+            "value": "Bearer 2|oEz5mOd9DebQCb0tvOkzHIoLxtS5R8GUPhODA1Ut4802b97e",
+            "description": "",
+            "disabled": false
+        }],
+        "authentication": {},
+        "metaSortKey": -1723395218030,
+        "isPrivate": false,
+        "pathParameters": [],
+        "settingStoreCookies": true,
+        "settingSendCookies": true,
+        "settingDisableRenderRequestBody": false,
+        "settingEncodeUrl": true,
+        "settingRebuildPath": true,
+        "settingFollowRedirects": "global",
+        "_type": "request"
+    }, {
+        "_id": "env_99d30891da4bdcebc63947a8fc17f076de878684",
+        "parentId": "wrk_scratchpad",
+        "modified": 1722469444277,
+        "created": 1722469444277,
+        "name": "Base Environment",
+        "data": {},
+        "dataPropertyOrder": null,
+        "color": null,
+        "isPrivate": false,
+        "metaSortKey": 1722469444277,
+        "_type": "environment"
+    }, {
+        "_id": "jar_99d30891da4bdcebc63947a8fc17f076de878684",
+        "parentId": "wrk_scratchpad",
+        "modified": 1723397119513,
+        "created": 1722469444331,
+        "name": "Default Jar",
+        "cookies": [{
+            "key": "XSRF-TOKEN",
+            "value": "eyJpdiI6IlA1a2pBdzEzc29ETUUwVGRGaEpIVkE9PSIsInZhbHVlIjoiOVQvajBSckVBVjR1QUlvZWRNTUsvcEJVdHFHTTA1VXhIQU1LNDIreGxyTFRSOFRDVUpvNkNBZWhlLzNUVC84SXZGZ282dnZHSTdkTWVWcitxVkNIdUxCNmx4amFudFVHUS9ONlZtcWFjbjQ0YVJydUx6azcreXRKQmdsZ3RIZU0iLCJtYWMiOiJlYTcxOTRjYjI5MThkOTYwZWU1OTZkNDAxNmJhN2Q5YjgxNTdkNjc2YWNjMzJhZWRlMGFiYzhmZjAyZWI0NzdmIiwidGFnIjoiIn0%3D",
+            "expires": "2024-08-11T19:25:19.000Z",
+            "maxAge": 7200,
+            "domain": "localhost",
+            "path": "/",
+            "hostOnly": true,
+            "creation": "2024-08-04T19:26:00.665Z",
+            "lastAccessed": "2024-08-11T17:25:19.511Z",
+            "sameSite": "lax",
+            "id": "32951b61-d767-4f36-90f2-2de05eb1bc87"
+        }, {
+            "key": "laravel_session",
+            "value": "eyJpdiI6IkRJb3czRnA5T3dBdFlSbVNvTEJrMGc9PSIsInZhbHVlIjoiOHBRZFBTWFVIR1FzV3ZXNE1yTTRZMmFkZTdvYW9JSjBvMnJTZktIZzlVWVpuRzNrTjhnSFlEa3pKSlVqdGZ6WTFDNTJZVGdsU2JVYXRPL3o4TkZRbWY3SDlMb2NBc3dLR1VGK3RqRTNWcUthbUpDVmtlUURDM3dldGNTcjlwNUYiLCJtYWMiOiI2OTRiZjVjYjcwYWJlZWY4MTA0ODkxY2I4MzgyOTQwZDhmNjVlMWY3ZGIwOWU4MDIwODMxMmRjYzI2ZjgyODBkIiwidGFnIjoiIn0%3D",
+            "expires": "2024-08-11T19:25:19.000Z",
+            "maxAge": 7200,
+            "domain": "localhost",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2024-08-04T19:26:00.667Z",
+            "lastAccessed": "2024-08-11T17:25:19.513Z",
+            "sameSite": "lax",
+            "id": "2e982fcd-5988-4b53-87a0-0f55361cbc71"
+        }],
+        "_type": "cookie_jar"
+    }]
+}
