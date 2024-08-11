@@ -1,10 +1,12 @@
 <?php
 
 use App\Events\NewMessageEvent;
+use App\Http\Controllers\Api\FinanceAssetsController;
 use App\Http\Controllers\api\MessageController;
 use App\Http\Controllers\api\RoomController;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
@@ -14,7 +16,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::post('/sanctum/token', function (Request $request) {
+Route::post('/login', function (Request $request) {
     $request->validate([
         'email' => 'required|email',
         'password' => 'required',
@@ -23,12 +25,14 @@ Route::post('/sanctum/token', function (Request $request) {
     $user = User::where('email', $request->email)->first();
 
     if (!$user || !Hash::check($request->password, $user->password)) {
-        throw ValidationException::withMessages([
-            'email' => ['The provided credentials are incorrect.'],
-        ]);
+        return response()->json(array(
+            'message' => 'The provided credentials are incorrect.'
+        ), Response::HTTP_UNAUTHORIZED);
     }
 
-    return $user->createToken($request->device_name)->plainTextToken;
+    return response()->json(array(
+        'token' => $user->createToken($request->email)->plainTextToken 
+    ), Response::HTTP_OK);
 });
 
 // group auth api
@@ -39,4 +43,10 @@ Route::group(['prefix' => 'chat', 'middleware' => 'auth:sanctum'], function() {
     Route::get('/messages/{room_id}', [MessageController::class,'list'])->name('messages.list');
     Route::post('/messages/store', [MessageController::class,'store'])->name('messages.store');
 
+});
+
+// group auth api
+Route::group(['prefix' => 'finance', 'middleware' => 'auth:sanctum'], function() {
+    Route::get('/list', [FinanceAssetsController::class,'list'])->name('finance.list');
+    Route::get('/list-month', [FinanceAssetsController::class, 'listMonth'])->name('finance.listMonth');
 });

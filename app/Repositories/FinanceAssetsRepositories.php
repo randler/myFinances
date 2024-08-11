@@ -50,4 +50,14 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
 
         return round($total,2);
     }    
+
+
+
+    // ======= API ======
+
+    public function listAssets()
+    {
+        return FinanceAssets::where('user_id', auth()->id())
+            ->get();
+    }
 }
