@@ -112,7 +112,7 @@ class FinanceAssetsRepositories implements FinanceRepositoryInterface
         return $financeAssets;
     }
 
-    /**delete
+    /**
      * Save a new finance asset
      * 
      * @param array<mixed> $data
