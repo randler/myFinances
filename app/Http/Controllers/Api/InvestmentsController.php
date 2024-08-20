@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\Investments\InvestmentsDeleteRequest;
 use App\Http\Requests\Api\Investments\InvestmentsFindRequest;
 use App\Http\Requests\Api\Investments\InvestmentsStoreRequest;
 use App\Http\Requests\Api\Investments\InvestmentsUpdateRequest;
 use App\Repositories\InvestmentsRepositories;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class InvestmentsController extends Controller
@@ -16,7 +16,7 @@ class InvestmentsController extends Controller
     {
         return response()->json([
             'message' => 'Investments list',
-            'finance' => $investmentsRepositories->getCurrentMonthBalance()->get()
+            'investments' => $investmentsRepositories->getCurrentMonthBalance()->get()
         ]);
     }
 
@@ -24,7 +24,7 @@ class InvestmentsController extends Controller
     {
         return response()->json([
             'message' => 'Investments list',
-            'invetements' => $investmentsRepositories->listAssets()
+            'invetments' => $investmentsRepositories->listAssets()
         ], Response::HTTP_OK);
     }
 
@@ -34,7 +34,7 @@ class InvestmentsController extends Controller
             $investments = $investmentsRepositories->store($request->all());
             return response()->json([
                 'message' => 'Investements created',
-                'investements' => $investments
+                'investments' => $investments
             ], Response::HTTP_CREATED);
 
         } catch (\Exception $e) {
@@ -62,7 +62,7 @@ class InvestmentsController extends Controller
         }
     }
 
-	public function delete(InvestmentsDeleteRequest $request, InvestmentsRepositories $investmentsRepositories)
+	public function delete(Request $request, InvestmentsRepositories $investmentsRepositories)
     {
         try {
             $investments = $investmentsRepositories->delete($request->get('id'));
