@@ -26,7 +26,7 @@ class ExpensesUpdateRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'nullable|string',
             'amount' => 'required|numeric',
-            'amount_paid' => 'required|numeric',
+            'amount_paid' => 'nullable|numeric',
             'expiration_day' => 'required|date',
             'paid_date' => 'nullable|date',
             'recurrence_month' => 'required|integer',
